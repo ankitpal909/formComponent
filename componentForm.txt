@@ -1,0 +1,76 @@
+<aura:component >
+    
+    <!--attributes ..-->
+    <aura:attribute name="fieldValues"
+                    type="List" />
+    <!--attributes ..-->
+    <lightning:layout class="slds-p-around_large slds-grid slds-wrap">
+        <lightning:card class="slds-p-around_xxx-small slds-size_1-of-1"
+                        title="Component Form"
+                        iconName="standard:account">
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <lightning:layoutItem class="slds-size_1-of-1 slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12">
+                    <lightning:input aura:id="idForm"
+                                     type="text"
+                                     label="First Name"
+                                     required="true"
+                                     value="{!v.fieldValues[0]}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-size_2-of-12">
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-size_1-of-1 slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12" >
+                    <lightning:input aura:id="idForm"
+                                     type="text"
+                                     label="Last Name"
+                                     required="true"
+                                     value="{!v.fieldValues[1]}" />
+                </lightning:layoutItem>
+            </div>
+            
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <lightning:layoutItem class="slds-size_1-of-1 slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12" >
+                    <lightning:input aura:id="idForm"
+                                     type="date"
+                                     label="D.O.B."
+                                     required="true"
+                                     value="{!v.fieldValues[2]}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-size_2-of-12" >
+                </lightning:layoutItem>
+                <lightning:layoutItem class="slds-size_1-of-1 slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12" >
+                    <lightning:input aura:id="idForm"
+                                     type="number"
+                                     label="Age"
+                                     required="true"
+                                     value="{!v.fieldValues[3]}" />
+                </lightning:layoutItem>
+            </div>
+            
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <lightning:layoutItem class="slds-size_1-of-1 slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12" >
+                    <lightning:select aura:id="idFormSelect"
+                                      label="Department"
+                                      required="true"
+                                      value="{!v.fieldValues[4]}">
+                        <option value="">--None--</option>
+                        <option value="IT">IT</option>
+                        <option value="Development">Development</option>
+                        <option value="Quality">Quality</option>
+                    </lightning:select>
+                </lightning:layoutItem>
+            </div>
+            <lightning:layoutItem class="slds-p-around_medium">
+                <lightning:input aura:id="idForm"
+                                 type="checkbox"
+                                 label="*Terms and Conditions"
+                                 required="true"
+                                 checked="{!v.fieldValues[5]}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem class="slds-p-around_medium slds-align_absolute-center slds-col slds-small-size_1-of-1 slds-medium-size_1-of-1 slds-large-size_5-of-12">
+                <lightning:button name="save"
+                                  label="validate"
+                                  onclick="{!c.validate}" />
+            </lightning:layoutItem>
+        </lightning:card>
+    </lightning:layout>
+</aura:component>

@@ -1,0 +1,19 @@
+({
+    validate : function(component, event, helper) {
+        var allValid = component.find("idForm").reduce(function (validSoFar, inputCmp) {
+            inputCmp.showHelpMessageIfInvalid();
+            return validSoFar && !inputCmp.get('v.validity').valueMissing;
+        }, true);
+        component.find("idFormSelect").showHelpMessageIfInvalid();
+        var validSelect = component.find("idFormSelect").get("v.value");
+        if(allValid && validSelect!=null && validSelect!=""){
+            var fieldValues = component.get("v.fieldValues");
+            alert("First Name : " + fieldValues[0] +
+                  "\n Last Name : " + fieldValues[1] +
+                  "\nD.O.B. : " + fieldValues[2] +
+                  "\nAge : " + fieldValues[3] + 
+                  "\nDepartment : " + component.find("idFormSelect").get("v.value") +
+                  "\n*Terms and Conditions : " + fieldValues[5]);
+        }
+    },
+})
